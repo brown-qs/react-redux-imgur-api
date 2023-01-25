@@ -79,6 +79,18 @@ const GalleriesList = () => {
         : setTopSelected(false)
     }
   }
+  const onViralCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const select = event.currentTarget;
+    const option = select.value;
+    setCurrentPage(0);
+    setLoad(true);
+    setUseFilter(true);
+    setPage(0);
+    updateFilter({
+      'viral': option,
+      page: 0
+    });
+  }
 
   const loadNextGalleries = (nextPage = false) => {
     let currentNextPage;
@@ -122,6 +134,7 @@ const GalleriesList = () => {
         onFilterChange={onFilterChange}
         userSelected={userSelected}
         topSelected={topSelected}
+        onViralCheck={onViralCheck}
       />
       {wholeList.length ? (
         list.map(post => {

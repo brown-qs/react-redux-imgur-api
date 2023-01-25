@@ -5,6 +5,7 @@ type Filter = {
   sort: string
   window: string
   page: number
+  viral: boolean
 }
 
 type FilterAction = {
@@ -18,10 +19,11 @@ export const asyncGetGalleries = ({
   section,
   sort,
   window,
-  page
+  page,
+  viral
 }: Filter) => (dispatch: DispatchType) => {
   console.log('shinshinshin')
-  const url = `${API_URL}/${section}/${sort}/${window}/${page}?album_previews=true`;
+  const url = `${API_URL}/${section}/${sort}/${window}/${page}?album_previews=true&showViral=${viral}`;
   fetch(url, {
     method: "GET",
     headers: {

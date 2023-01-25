@@ -24,6 +24,10 @@
 .post__title {
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(160, 160, 160, 0.2);
+    overflow: hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 .post__image-container {

@@ -4,12 +4,13 @@ import "../css/filter.css";
 
 type GalleryFilterProps = {
   onFilterChange: (e: React.FormEvent<HTMLSelectElement>) => void;
+  onViralCheck: (e: React.ChangeEvent<HTMLInputElement>) => void;
   userSelected: boolean,
   topSelected: boolean,
   filterOptions: any,
 }
 export const GalleryFilter = (props: GalleryFilterProps) => {
-  const { onFilterChange, userSelected, topSelected, filterOptions } = props;
+  const { onFilterChange, userSelected, topSelected, filterOptions, onViralCheck } = props;
   return (
     <div className="filter__wrapper">
       <div className="logo" />
@@ -43,7 +44,7 @@ export const GalleryFilter = (props: GalleryFilterProps) => {
             </select>
           </div>
           <div className="filter__section">
-            <label htmlFor="section">Time range</label>
+            <label htmlFor="section">Window</label>
             <select
               id="window"
               name="window"
@@ -56,6 +57,12 @@ export const GalleryFilter = (props: GalleryFilterProps) => {
               <option value="year">Year</option>
               <option value="all">All</option>
             </select>
+          </div>
+          <div className="filter__section">
+            <label htmlFor="section">Viral</label>
+            <input type="checkbox" id="viral" name="viral" onChange={e => onViralCheck(e)}
+              defaultValue={filterOptions.viral}
+            />
           </div>
         </div>
       </div>
